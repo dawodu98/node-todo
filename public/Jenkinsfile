@@ -15,9 +15,9 @@ pipeline {
         }    
 
 
-        stage('Build Angular Project') {
+        stage('npm install') {
             steps {
-                sh 'npm run build'
+                sh 'npm install'
             }
         }
 
