@@ -14,12 +14,14 @@ pipeline {
             }
         }    
 
-stage('Check Node.js and npm Versions') {
+stage('Install Node.js and npm') {
     steps {
-        sh 'node -v'
-        sh 'npm -v'
+        sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
+        sh 'source ~/.nvm/nvm.sh'
+        sh 'nvm install node'
     }
 }
+
 
 
         
