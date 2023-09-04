@@ -14,29 +14,6 @@ pipeline {
             }
         }    
 
-stage('Set Up nvm and Install Node.js') {
-    steps {
-        script {
-            def nvmEnv = loadNvm()
-            sh "${nvmEnv} && nvm install node"
-        }
-    }
-}
-
-def loadNvm() {
-    def nvmHome = tool name: 'NVM', type: 'Tool'
-    return "export NVM_DIR=${nvmHome}/nvm && [ -s \${NVM_DIR}/nvm.sh ] && \. \${NVM_DIR}/nvm.sh"
-}
-
-        
-stage('Install Node.js and npm') {
-    steps {
-        sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
-        sh 'source ~/.nvm/nvm.sh'
-        sh 'nvm install node'
-    }
-}
-
 
 
         
