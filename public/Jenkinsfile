@@ -2,12 +2,34 @@ pipeline {
     agent any
 
     stages {
+                stage('Checkout') {
+            steps {
+                // Checkout your Git repository
+                checkout scm
+            }
+        }
+        
         stage('Hello') {
             steps {
                 echo 'Hello World'
             }
         }    
-        
+
+        stage('NPM Install') {
+            steps {
+                // Install Node.js and npm if needed
+                sh 'npm install'
+            }
+        }
+
+        stage('Build Angular Project') {
+            steps {
+                // Build the Angular project
+                sh 'npm run build'
+            }
+        }
+
+
         
     }
 }
